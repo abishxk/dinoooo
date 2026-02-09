@@ -454,8 +454,6 @@ function GamePage({ onBack }) {
 
     const gameFrameRef = useRef(null); // ONLY the iframe box
 
-    const touchStartY = useRef(0);
-
     const [stage, setStage] = useState("form");
 // form → instructions → countdown → play
 
@@ -602,13 +600,6 @@ function GamePage({ onBack }) {
         setStage("instructions");
     };
 
-
-    const sendToGame = (data) => {
-        const iframe = iframeRef.current;
-        if (!iframe) return;
-
-        iframe.contentWindow.postMessage(data, "*");
-    };
 
 
     /* Retry */
